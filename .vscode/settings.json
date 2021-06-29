@@ -1,0 +1,31 @@
+{
+  "editor.fontSize": 16,
+  "window.zoomLevel": 0,
+  "editor.mouseWheelZoom": false,
+  "code-runner.executorMap": {
+    "javascript": "node -r sucrase/register"
+  },
+  "cSpell.words": [
+    "Autorenew",
+    "abcdefghijklmnopqrstuvwxyz",
+    "gqlcourse",
+    "luizotavio",
+    "otaviomiranda",
+    "toastify",
+    "xhero",
+    "xhuge",
+    "xlarge",
+    "xsmall",
+    "xtiny",
+    "xxhero",
+    "xxhuge",
+    "xxlarge",
+    "xxsmall",
+    "xxtiny"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll": true,
+    // "source.organizeImports": true
+  },
+}
