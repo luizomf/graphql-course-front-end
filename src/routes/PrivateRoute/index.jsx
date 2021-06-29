@@ -1,10 +1,11 @@
 import P from 'prop-types';
-import { useAuthCheck } from 'graphql/hooks/use-auth-check';
 import { Redirect, Route } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export const PrivateRoute = ({ children = '', component = '', ...rest }) => {
-  let { authData = {} } = useAuthCheck();
+  let { authData = {} } = {
+    /* ????? */
+  };
   const isLoggedIn = authData && !!authData.userId;
 
   if (component) {

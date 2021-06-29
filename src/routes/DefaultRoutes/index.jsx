@@ -1,29 +1,25 @@
 import { Route, Switch } from 'react-router-dom';
-import { PrivateRoute } from 'routes/PrivateRoute';
-import { App } from 'templates/App';
-import { Login } from 'templates/Login';
-import { Page404 } from 'templates/Page404';
-import { PostEditor } from 'templates/PostEditor';
-import { PostTemplate } from 'templates/PostTemplate';
-import { Register } from 'templates/Register';
+import { Page404 } from 'page-templates/Page404';
+import { Home } from 'page-templates/Home';
 
 export const DefaultRoutes = () => {
   return (
     <Switch>
-      <Route path="/login" component={Login} exact />
-      <Route path="/register" component={Register} exact />
-      <PrivateRoute path="/" exact>
+      {/* <Route path="/login" component={Login} exact /> */}
+      {/* <Route path="/register" component={Register} exact /> */}
+      {/* <PrivateRoute path="/" exact>
         <App postOffSet={null} />
-      </PrivateRoute>
-      <PrivateRoute path="/post/create" exact>
+      </PrivateRoute> */}
+      {/* <PrivateRoute path="/post/create" exact>
         <PostEditor />
-      </PrivateRoute>
-      <PrivateRoute path="/post/:id/edit" exact>
+      </PrivateRoute> */}
+      {/* <PrivateRoute path="/post/:id/edit" exact>
         <PostEditor />
-      </PrivateRoute>
-      <PrivateRoute path="/post/:id" exact>
+      </PrivateRoute> */}
+      {/* <PrivateRoute path="/post/:id" exact>
         <PostTemplate />
-      </PrivateRoute>
+      </PrivateRoute> */}
+      <Route component={Home} />
       <Route component={Page404} />
     </Switch>
   );

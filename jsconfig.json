@@ -5,12 +5,11 @@
     "jsxImportSource": "react",
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["types"],
     "jsx": "preserve"
   },
   "include": [
-    "src",
-    "types"
+    "./src",
+    "./types"
   ],
   "exclude": [
     "node_modules"
