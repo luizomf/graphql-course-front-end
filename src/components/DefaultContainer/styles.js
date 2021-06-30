@@ -13,14 +13,15 @@ export const Container = styled.div`
     width: 100%;
     max-width: ${theme.containerSizes.large};
     border-radius: ${theme.radius.large};
-    box-shadow: 0 0 15px rgba(128, 128, 128, 0.2);
+    box-shadow: 0 0.2rem 1rem rgba(128, 128, 128, 0.3);
+    border: 0.1rem solid #eee;
     transition: all 300ms ease-in-out;
     position: relative;
     overflow: hidden;
 
     @media ${theme.media.gteOrEqSmall} {
       &:hover {
-        box-shadow: 0 0 15px rgba(128, 128, 128, 0.3);
+        box-shadow: 0 0 1rem rgba(128, 128, 128, 0.4);
       }
     }
   `}
