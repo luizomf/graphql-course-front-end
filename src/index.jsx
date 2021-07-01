@@ -7,11 +7,14 @@ import reportWebVitals from './reportWebVitals';
 import { DefaultRoutes } from './routes/DefaultRoutes';
 import { theme } from './styles/theme';
 import { GlobalStyles } from './styles/global-styles';
+import { Main } from './page-bases/Main';
 
 ReactDOM.render(
   <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <DefaultRoutes />
+      <Main>
+        <DefaultRoutes />
+      </Main>
 
       <ToastContainer
         position="top-right"

@@ -1,10 +1,12 @@
 import { AuthForm } from 'components/AuthForm';
-import { Main } from 'page-bases/Main';
+import { Helmet } from 'react-helmet';
 
 export const Login = () => {
   return (
-    <Main>
+    <>
+      <Helmet title="Login - GraphQL + Apollo-Client - Otávio Miranda" />
+
       <AuthForm />
-    </Main>
+    </>
   );
 };

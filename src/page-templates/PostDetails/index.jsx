@@ -1,4 +1,3 @@
-import { Main } from 'page-bases/Main';
 import { Post } from 'components/Post';
 import { Comment } from 'components/Comment';
 import { DefaultContainer } from 'components/DefaultContainer';
@@ -11,7 +10,8 @@ import { ConfirmButton } from 'components/ConfirmButton';
 import { CommentForm } from 'components/CommentForm';
 
 // MOCKED DATA
-import GET_POSTS_MOCK from 'mock/GET_POSTS';
+import GET_POSTS_MOCK from 'mock/posts';
+import { Helmet } from 'react-helmet';
 const posts = GET_POSTS_MOCK.data.posts;
 const post = posts[0];
 
@@ -19,7 +19,9 @@ export const PostDetails = () => {
   const history = useHistory();
 
   return (
-    <Main>
+    <>
+      <Helmet title="Post Details - GraphQL + Apollo-Client - Otávio Miranda" />
+
       <Post
         id={post.id}
         title={post.title}
@@ -65,6 +67,6 @@ export const PostDetails = () => {
       <CommentForm
         handleSubmit={(comment) => toast.success(`Your comment is: ${comment}`)}
       />
-    </Main>
+    </>
   );
 };

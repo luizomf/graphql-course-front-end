@@ -1,6 +1,7 @@
 import { darken, transparentize } from 'polished';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { Container as ToggleButton } from '../ToggleButton/styles';
 
 export const Container = styled.div`
   ${({ theme, isVisible = false }) => css`
@@ -16,10 +17,12 @@ export const Container = styled.div`
     z-index: ${theme.layers.layer2};
     transition: left 300ms ease-in-out;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-flow: column nowrap;
   `}
+
+  ${ToggleButton} {
+    flex-flow: column nowrap;
+  }
 `;
 
 export const BlurBg = styled.div`
@@ -73,6 +76,7 @@ export const ShowButton = styled.button`
     align-items: center;
     justify-content: center;
     transform: scale(1);
+    border-radius: ${theme.radius.small};
 
     &:hover,
     &:active {
@@ -91,7 +95,7 @@ export const HideButton = styled.button`
   ${({ theme, isVisible = false }) => css`
     background: ${theme.colors.primary};
     color: ${theme.colors.white};
-    border-radius: 50%;
+    border-radius: ${theme.radius.small};
     width: ${theme.spacings.large};
     height: ${theme.spacings.large};
     border: none;
@@ -104,7 +108,7 @@ export const HideButton = styled.button`
     left: 27rem;
     opacity: ${isVisible ? 1 : 0};
     transition: left 300ms ease-in-out, opacity 300ms ease-in-out,
-      transform 1s ease-in-out;
+      transform 300ms ease-in-out;
     z-index: ${theme.layers.layer3};
     transform: rotate(0deg);
 
@@ -116,7 +120,7 @@ export const HideButton = styled.button`
     &:hover,
     &:active {
       background: ${darken(0.1, theme.colors.primary)};
-      transform: rotate(360deg);
+      transform: rotate(90deg);
     }
   `}
 `;
@@ -142,4 +146,15 @@ export const RouterLink = styled(Link)`
       color: ${darken(0.1, theme.colors.primary)};
     }
   `}
+`;
+
+export const VerticalCenter = styled.div`
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media screen and (max-height: 321px) {
+    top: auto;
+    transform: none;
+  }
 `;

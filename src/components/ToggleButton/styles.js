@@ -23,7 +23,7 @@ export const Switch = styled.div`
     height: 3.2rem;
     background: ${theme.colorGray.gray06};
     border: ${theme.spacings.xxtiny} solid ${theme.colorGray.gray10};
-    border-radius: ${theme.radius.xlarge};
+    border-radius: ${theme.radius.small};
     position: relative;
     box-shadow: inset -5px 5px 5px rgba(0, 0, 0, 0.1),
       0 0 5px rgba(0, 0, 0, 0.1);
@@ -49,7 +49,7 @@ export const Slider = styled.div`
     transform: translate(0, -50%);
     width: 2.4rem;
     height: 2.4rem;
-    border-radius: 10rem;
+    border-radius: ${theme.radius.small};
     z-index: ${theme.layers.layer2};
     transition: all 300ms ease-in-out;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);

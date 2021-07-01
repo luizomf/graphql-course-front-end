@@ -1,17 +1,19 @@
 import P from 'prop-types';
 import * as Styled from './styles';
-import { Main } from 'page-bases/Main';
 import { Heading } from 'components/Heading';
 import { useState } from 'react';
 import { Post } from 'components/Post';
+import { Helmet } from 'react-helmet';
 
-import GET_POSTS_MOCK from 'mock/GET_POSTS';
+import GET_POSTS_MOCK from 'mock/posts';
 
 export const Home = () => {
   const [dataMock] = useState(GET_POSTS_MOCK.data);
 
   return (
-    <Main>
+    <>
+      <Helmet title="Home - GraphQL + Apollo-Client - Otávio Miranda" />
+
       <Styled.HeadingContainer>
         <Heading>Posts</Heading>
       </Styled.HeadingContainer>
@@ -32,7 +34,7 @@ export const Home = () => {
           );
         })}
       </Styled.PostsContainer>
-    </Main>
+    </>
   );
 };
 

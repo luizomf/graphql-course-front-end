@@ -1,34 +1,19 @@
-import { useIsMounted } from 'hooks/use-is-mounted';
 import P from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import * as Styled from './styles';
 
 export const ToggleButton = ({
   description = '',
   title = '',
   state = true,
-  onChangeFn = null,
+  onChangeFn,
 }) => {
-  const isMounted = useIsMounted();
-  const onChangeRef = useRef(onChangeFn);
   const [on, setOn] = useState(state);
 
-  useEffect(() => {
-    if (!isMounted()) return;
-
-    setOn(state);
-  }, [state, isMounted]);
-
-  useEffect(() => {
-    if (onChangeRef.current) {
-      onChangeRef.current(on);
-    }
-  }, [on]);
-
   const handleChange = () => {
-    if (!isMounted()) return;
-
-    setOn((s) => !s);
+    const newState = !on;
+    setOn(newState);
+    onChangeFn(newState);
   };
 
   return (
