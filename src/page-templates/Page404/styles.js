@@ -1,5 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { Container as DefaultContainer } from 'components/DefaultContainer/styles';
 
 export const Container = styled.div`
-  ${({ _theme }) => css``}
+  text-align: center;
+
+  ${DefaultContainer} {
+    margin-bottom: 0;
+  }
+
+  h1,
+  p {
+    margin-bottom: 2rem;
+  }
 `;

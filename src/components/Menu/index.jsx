@@ -3,17 +3,15 @@ import { Loading } from 'components/Loading';
 import { ToggleButton } from 'components/ToggleButton';
 import * as Styled from './styles';
 import P from 'prop-types';
+import { useState } from 'react';
 
-const fakeCb = () => false;
+export function Menu({ loading = false, data = {}, handleLogout }) {
+  const [isVisible, setIsVisible] = useState(false);
 
-export function Menu({
-  loading = false,
-  isVisible = false,
-  setIsVisible = fakeCb,
-  handleNavClick = fakeCb,
-  data = {},
-  handleLogout = fakeCb,
-}) {
+  const handleNavClick = () => {
+    setIsVisible(false);
+  };
+
   return (
     <>
       {loading && <Loading loading={loading} />}
@@ -67,8 +65,6 @@ export function Menu({
 
 Menu.propTypes = {
   loading: P.bool,
-  isVisible: P.bool,
-  setIsVisible: P.func,
   handleNavClick: P.func,
   data: P.object,
   handleLogout: P.func,

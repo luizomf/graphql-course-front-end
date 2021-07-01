@@ -9,14 +9,23 @@ import { Save } from '@styled-icons/material-outlined';
 import P from 'prop-types';
 import { Post } from 'components/Post';
 
-const fakeCb = () => false;
-
 export const PostForm = ({
-  handleSubmit = fakeCb,
   post,
   formError,
   somethingLoading,
+  handleSubmitCb,
 }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const postTitle = form.postTitle.value;
+    const postBody = form.postBody.value;
+
+    if (handleSubmitCb) {
+      handleSubmitCb({ title: postTitle, body: postBody });
+    }
+  };
+
   return (
     <DefaultContainer>
       <Styled.Form onSubmit={handleSubmit}>
@@ -40,8 +49,8 @@ export const PostForm = ({
 };
 
 PostForm.propTypes = {
-  handleSubmit: P.func,
   post: P.shape(Post.propTypes),
   formError: P.string,
   somethingLoading: P.bool,
+  handleSubmitCb: P.func,
 };

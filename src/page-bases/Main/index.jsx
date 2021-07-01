@@ -1,8 +1,15 @@
 import P from 'prop-types';
-import * as Styled from './styles';
+import { Footer } from 'components/Footer';
+import { Menu } from 'components/Menu';
 
-export const Main = ({ children = 'Replace-Me' }) => {
-  return <Styled.Container>{children}</Styled.Container>;
+export const Main = ({ children }) => {
+  return (
+    <>
+      <Menu />
+      {children}
+      <Footer />
+    </>
+  );
 };
 
 Main.propTypes = {

@@ -67,7 +67,11 @@ const outlinedStyles = (theme, bgColor) => css`
  */
 const buttonSizeSmall = (theme) => css`
   font-size: ${theme.font.sizes.xxsmall};
-  padding: ${theme.spacings.tiny};
+  padding: ${theme.spacings.tiny} ${theme.spacings.xsmall};
+
+  > svg {
+    margin-right: ${theme.spacings.xxsmall};
+  }
 `;
 
 export const ButtonStyles = styled.button`
@@ -89,7 +93,6 @@ export const ButtonStyles = styled.button`
 
     ${!disabled && filledStyles(theme, bgColor)};
     ${!disabled && outlined && outlinedStyles(theme, bgColor)};
-    ${size === 'small' && buttonSizeSmall(theme)};
 
     &:disabled {
       background: ${theme.colorGray.gray10};
@@ -107,5 +110,7 @@ export const ButtonStyles = styled.button`
         transform: translateX(-${theme.spacings.xtiny});
       `}
     }
+
+    ${size === 'small' && buttonSizeSmall(theme, iconOnly)};
   `}
 `;

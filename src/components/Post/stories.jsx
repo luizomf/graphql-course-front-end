@@ -1,4 +1,3 @@
-import { DefaultContainer } from 'components/DefaultContainer';
 import { Post } from '.';
 
 export default {
@@ -34,9 +33,5 @@ export default {
 };
 
 export const Template = (args) => {
-  return (
-    <DefaultContainer>
-      <Post {...args} />
-    </DefaultContainer>
-  );
+  return <Post {...args} />;
 };

@@ -6,7 +6,8 @@ import { Loading } from 'components/Loading';
 import P from 'prop-types';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { dateFormatter } from '../../utils/date-formatter';
+import { dateFormatter } from 'utils/date-formatter';
+import { DefaultContainer } from '../DefaultContainer';
 import { UserPropTypes } from './prop-types';
 import * as Styled from './styles';
 
@@ -36,7 +37,7 @@ export const Post = ({
   if (error) return <DefaultError error={error} />;
 
   return (
-    <>
+    <DefaultContainer>
       <Styled.Container ref={ref} id={`post-single-${id}`}>
         <Styled.PostHeading>
           <Link to={`/post/${id}`}>{title}</Link>
@@ -70,7 +71,7 @@ export const Post = ({
           </Styled.PostTools>
         )}
       </Styled.Container>
-    </>
+    </DefaultContainer>
   );
 };
 
