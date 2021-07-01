@@ -16,14 +16,26 @@ import * as Styled from './styles';
 import P from 'prop-types';
 import { UserPropTypes } from 'components/Post/prop-types';
 
-const fakeCb = () => false;
-
 export const RegisterForm = ({
   authData = {},
-  handleSubmit = fakeCb,
+  handleSubmitCb,
   somethingLoading = false,
   formError = '',
 }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const userName = form.userName.value;
+    const password = form.password.value;
+
+    if (handleSubmitCb) {
+      handleSubmitCb({ firstName, lastName, userName, password });
+    }
+  };
+
   return (
     <>
       <Styled.Container>
@@ -107,7 +119,7 @@ export const RegisterForm = ({
 
 RegisterForm.propTypes = {
   authData: P.shape(UserPropTypes.propTypes),
-  handleSubmit: P.func,
+  handleSubmitCb: P.func,
   somethingLoading: P.bool,
   formError: P.string,
 };
