@@ -11,12 +11,12 @@ export function MenuMemo({ loading = false, data = {}, handleLogout }) {
   const notificationCb = useCallback((status) => {
     toast.success(`Notifications are ${status ? 'ON' : 'OFF'}`);
   }, []);
-  const hideMenu = useCallback(() => setIsVisible(false), []);
-  const showMenu = useCallback(() => setIsVisible(true), []);
+  const hideMenu = () => setIsVisible(false);
+  const showMenu = () => setIsVisible(true);
 
-  const handleNavClick = useCallback(() => {
+  const handleNavClick = () => {
     setIsVisible(false);
-  }, []);
+  };
 
   return (
     <>
